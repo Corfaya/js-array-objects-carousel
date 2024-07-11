@@ -36,8 +36,8 @@ images.forEach((el) => {
 
 
 const card = document.querySelectorAll(".card")
-const prev = document.querySelector(".btn-left")
 const next = document.querySelector(".btn-right")
+const prev = document.querySelector(".btn-left")
 
 // var elemento visibile
 let active = 0;
@@ -49,6 +49,17 @@ next.addEventListener("click", function() {
         active = 0
     } else {
         active++
+    }
+    card[active].classList.remove("d-none")
+})
+
+card[active].classList.remove("d-none");
+prev.addEventListener("click", function() {
+    card[active].classList.add("d-none")
+    if(active === 0) {
+        active = images.length - 1
+    } else {
+        active--
     }
     card[active].classList.remove("d-none")
 })
