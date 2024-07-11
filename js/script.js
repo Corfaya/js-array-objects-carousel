@@ -25,7 +25,7 @@ const images = [
 const container = document.querySelector(".container")
 const prev = document.querySelector(".btn-left")
 const next = document.querySelector(".btn-right")
-const card = document.getElementsByClassName(".card")
+const card = document.querySelectorAll(".card")
 
 // var elemento visibile
 let active = 0;
