@@ -3,3 +3,33 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.card {
+    height: 600px;
+}
+
+img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.text {
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    text-align: end;
+}
