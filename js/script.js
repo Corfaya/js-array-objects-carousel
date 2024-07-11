@@ -23,13 +23,19 @@ const images = [
 ];
 
 const container = document.querySelector(".container")
+const prev = document.querySelector(".btn-left")
+const next = document.querySelector(".btn-right")
+const card = document.querySelectorAll(".card")
+
+// var elemento visibile
+let active = 0;
 
 images.forEach((el) => {
     container.innerHTML += `<div class="card relative">
-                        <img src="${el.image}" alt="image">
-                    <div class="text absolute">
-                        <h2>${el.title}</h2>
-                        <p>${el.text}</p>
-                    </div>
-                </div>`
+                                <img src="${el.image}" alt="image">
+                                <div class="text absolute">
+                                    <h2>${el.title}</h2>
+                                    <p>${el.text}</p>
+                                 </div>
+                            </div>`
 })

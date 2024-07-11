@@ -20,4 +20,4 @@ Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 # FLOW
 - Creare container su HTML e stilizzare
 - Rimuovo da HTML i contenuti statici e li reinserisco tramite array di oggetti
-- Creo un ciclo in base all'evento click
+- Creo un ciclo in base agli eventi click
