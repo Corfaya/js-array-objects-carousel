@@ -25,13 +25,21 @@ const images = [
 const container = document.querySelector(".container")
 const prev = document.querySelector(".btn-left")
 const next = document.querySelector(".btn-right")
-const card = document.querySelectorAll(".card")
+const card = document.getElementsByClassName(".card")
 
 // var elemento visibile
 let active = 0;
+card[active].classList.remove("d-none");
+console.log(card[active]);
+
+next.addEventListener("click", function() {
+    card[active].classList.add("d-none")
+    active++
+    card[active].classList.remove("d-none")    
+})
 
 images.forEach((el) => {
-    container.innerHTML += `<div class="card relative">
+    container.innerHTML += `<div class="card relative d-none">
                                 <img src="${el.image}" alt="image">
                                 <div class="text absolute">
                                     <h2>${el.title}</h2>
