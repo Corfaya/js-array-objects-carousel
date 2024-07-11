@@ -18,6 +18,26 @@ Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi)
 Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 
 # FLOW
-- Creare container su HTML e stilizzare
-- Rimuovo da HTML i contenuti statici e li reinserisco tramite array di oggetti
-- Creo un ciclo in base agli eventi click
+- Creo container su HTML e stilizzo
+- Rimuovo da HTML i contenuti statici e li reinserisco con js
+    - Dichiaro l'array di oggetti con chiavi image, title, text
+- Recupero l'elemento container
+- PER OGNI elemento nell'array
+    - Aggiungo con innerHTML nel container i contenuti
+- Recupero le card ottenute tramite il forEach()
+- Recupero dal DOM i due pulsanti per avanzare o tornare indietro
+- Inizializzo a 0 una variabile dedicata all'elemento visibile (active)
+- Rimuovo dalla card in posizione 0 la classe d-none
+- Aggiungo un evento click al pulsante next
+    - Aggiungo alla card il d-none
+    - ? active corrisponde all'ultimo oggetto dell'array
+        - => reinizializza active a 0
+    - : incrementa di 1 active
+    - Rimuovi la classe d-none
+- Rimuovo dalla card in posizione 0 la classe d-none
+- Aggiungo un evento click al pulsante prev
+    - Aggiungo alla card il d-none
+    - ? active è 0
+        - => reinizializzo active alla posizione ultima dell'array
+    - : decrementa di 1 active
+    - Rimuovi la classe d-none
