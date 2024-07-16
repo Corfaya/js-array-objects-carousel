@@ -48,15 +48,7 @@ card[active].classList.remove("d-none");
 thumbnails[active].classList.add("full-opacity")
 
 next.addEventListener("click", function() {
-    card[active].classList.add("d-none")
-    thumbnails[active].classList.remove("full-opacity")
-    if(active == images.length - 1) {
-        active = 0
-    } else {
-        active++
-    }
-    card[active].classList.remove("d-none")
-    thumbnails[active].classList.add("full-opacity")
+    next()
 })
 
 card[active].classList.remove("d-none");
@@ -72,6 +64,18 @@ prev.addEventListener("click", function() {
     thumbnails[active].classList.add("full-opacity")
 })
 
+//BONUS 2
+setInterval(next, 3000)
 
-//AGGIUNGERE FUNZIONE così da usarla nei pulsanti e nell'autoplay
-function movingCard() {}
+// FUNCTIONS
+function next() {
+    card[active].classList.add("d-none")
+    thumbnails[active].classList.remove("full-opacity")
+    if(active == images.length - 1) {
+        active = 0
+    } else {
+        active++
+    }
+    card[active].classList.remove("d-none")
+    thumbnails[active].classList.add("full-opacity")
+}
