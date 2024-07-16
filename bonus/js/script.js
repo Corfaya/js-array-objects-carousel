@@ -46,23 +46,10 @@ const prev = document.querySelector(".btn-left")
 let active = 0;
 card[active].classList.remove("d-none");
 thumbnails[active].classList.add("full-opacity")
-
-next.addEventListener("click", function() {
-    moveRigth()
-})
+next.addEventListener("click", moveRigth)
 
 card[active].classList.remove("d-none");
-prev.addEventListener("click", function() {
-    card[active].classList.add("d-none")
-    thumbnails[active].classList.remove("full-opacity")
-    if(active === 0) {
-        active = images.length - 1
-    } else {
-        active--
-    }
-    card[active].classList.remove("d-none")
-    thumbnails[active].classList.add("full-opacity")
-})
+prev.addEventListener("click", moveLeft)
 
 //BONUS 2
 setInterval(moveRigth, 3000)
@@ -75,6 +62,18 @@ function moveRigth() {
         active = 0
     } else {
         active++
+    }
+    card[active].classList.remove("d-none")
+    thumbnails[active].classList.add("full-opacity")
+}
+
+function moveLeft() {
+    card[active].classList.add("d-none")
+    thumbnails[active].classList.remove("full-opacity")
+    if(active === 0) {
+        active = images.length - 1
+    } else {
+        active--
     }
     card[active].classList.remove("d-none")
     thumbnails[active].classList.add("full-opacity")
