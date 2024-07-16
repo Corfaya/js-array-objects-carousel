@@ -48,7 +48,7 @@ card[active].classList.remove("d-none");
 thumbnails[active].classList.add("full-opacity")
 
 next.addEventListener("click", function() {
-    next()
+    moveRigth()
 })
 
 card[active].classList.remove("d-none");
@@ -65,10 +65,10 @@ prev.addEventListener("click", function() {
 })
 
 //BONUS 2
-setInterval(next, 3000)
+setInterval(moveRigth, 3000)
 
 // FUNCTIONS
-function next() {
+function moveRigth() {
     card[active].classList.add("d-none")
     thumbnails[active].classList.remove("full-opacity")
     if(active == images.length - 1) {
