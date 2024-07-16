@@ -40,19 +40,30 @@ const thumbnails = document.querySelectorAll(".thumbnails")
 const card = document.querySelectorAll(".card")
 const next = document.querySelector(".btn-right")
 const prev = document.querySelector(".btn-left")
+// BONUS 3
+const startStop = document.getElementById("start-stop");
+const reverse = document.getElementById("reverse");
 
 
 // var elemento visibile
 let active = 0;
 card[active].classList.remove("d-none");
 thumbnails[active].classList.add("full-opacity")
-next.addEventListener("click", moveRigth)
-
-card[active].classList.remove("d-none");
-prev.addEventListener("click", moveLeft)
-
 //BONUS 2
-setInterval(moveRigth, 3000)
+let intervalRight = setInterval(moveRigth, 3000)
+//BONUS 3
+let intervalLeft = setInterval(moveLeft, 3000)
+
+next.addEventListener("click", moveRigth)
+prev.addEventListener("click", moveLeft)
+reverse.addEventListener("click", function() {
+        clearInterval(intervalRight)
+        setInterval(moveLeft, 3000)
+})
+
+startStop.addEventListener("click", function() {
+    setInterval(moveRigth, 3000)
+})
 
 // FUNCTIONS
 function moveRigth() {
