@@ -33,7 +33,7 @@ images.forEach((el) => {
     <p>${el.text}</p>
     </div>
     </div>`
-    thumbnailsBox.innerHTML += `<img class="thumbnails" src="${el.image}" alt="thumbnails">`
+    thumbnailsBox.innerHTML += `<img class="thumbnails opacity" src="${el.image}" alt="thumbnails">`
 })
 
 const thumbnails = document.querySelectorAll(".thumbnails")
@@ -71,3 +71,7 @@ prev.addEventListener("click", function() {
     card[active].classList.remove("d-none")
     thumbnails[active].classList.add("full-opacity")
 })
+
+
+//AGGIUNGERE FUNZIONE così da usarla nei pulsanti e nell'autoplay
+function movingCard() {}

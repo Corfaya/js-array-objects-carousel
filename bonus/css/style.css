@@ -67,7 +67,6 @@ button i {
 .thumbnails-box {
     height: 150px;
     width: 900px;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -80,6 +79,10 @@ button i {
     object-fit: cover;
 }
 
-.full-opacity {
+.opacity {
     opacity: 0.6;
+}
+
+.full-opacity {
+    opacity: 1;
 }
