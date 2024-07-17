@@ -40,41 +40,39 @@ images.forEach((el) => {
   thumbnailsBox.innerHTML += `<img class="thumbnails opacity" src="${el.image}" alt="thumbnails">`;
 });
 
+// RECOVERY
 const thumbnails = document.querySelectorAll(".thumbnails");
-const card = document.querySelectorAll(".card");
+const cards = document.querySelectorAll(".card");
 const next = document.querySelector(".btn-right");
 const prev = document.querySelector(".btn-left");
-// BONUS 3
 const startStop = document.getElementById("start-stop");
 const reverse = document.getElementById("reverse");
 
-// var elemento visibile
+// VARS
 let active = 0;
-card[active].classList.remove("d-none");
-thumbnails[active].classList.add("full-opacity");
-//BONUS 2
-
-//BONUS 3
 let intervalRight;
 let intervalLeft;
 let interval = false;
 let reverseBtn = false;
 
+// Initial toggle
+cards[active].classList.remove("d-none");
+thumbnails[active].classList.add("full-opacity");
+
+// EVENTS
 next.addEventListener("click", moveRigth);
 prev.addEventListener("click", moveLeft);
-
 reverse.addEventListener("click", reverseMovement);
-
 startStop.addEventListener("click", function () {
+  console.log(reverseBtn, interval)
   if (interval === false) {
     if (reverseBtn) {
-      reverseMovement();
-      reverseBtn = false
+      //vai a sx
+      intervalLeft = setInterval(moveLeft, 1000)
     } else {
-        clearInterval(intervalLeft);
-        intervalRight = setInterval(moveRigth, 1000);
-        interval = true;
+        intervalRight = setInterval(moveRigth, 1000);        
     }
+    interval = true;
   } else {
     clearInterval(intervalRight);
     clearInterval(intervalLeft);
@@ -82,34 +80,41 @@ startStop.addEventListener("click", function () {
   }
 });
 
+
 // FUNCTIONS
+function hideImg() {
+  cards[active].classList.add("d-none")
+  thumbnails[active].classList.remove("full-opacity")
+}
+
+function showImg() {
+  cards[active].classList.remove("d-none");
+  thumbnails[active].classList.add("full-opacity");
+}
+
 function moveRigth() {
-  card[active].classList.add("d-none");
-  thumbnails[active].classList.remove("full-opacity");
+  hideImg()
   if (active == images.length - 1) {
     active = 0;
   } else {
     active++;
   }
-  card[active].classList.remove("d-none");
-  thumbnails[active].classList.add("full-opacity");
+  showImg()
 }
 
 function moveLeft() {
-  card[active].classList.add("d-none");
-  thumbnails[active].classList.remove("full-opacity");
+  hideImg()
   if (active === 0) {
     active = images.length - 1;
   } else {
     active--;
   }
-  card[active].classList.remove("d-none");
-  thumbnails[active].classList.add("full-opacity");
+  showImg()
 }
 
 function reverseMovement() {
-  reverseBtn = true;
+  reverseBtn = !reverseBtn;
   clearInterval(intervalRight);
-  intervalLeft = setInterval(moveLeft, 1000);
-  interval = true;
+    clearInterval(intervalLeft);
+    interval = false;
 }
