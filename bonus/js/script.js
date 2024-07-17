@@ -68,9 +68,9 @@ startStop.addEventListener("click", function () {
   if (interval === false) {
     if (reverseBtn) {
       //vai a sx
-      intervalLeft = setInterval(moveLeft, 1000)
+      intervalLeft = setInterval(moveLeft, 3000)
     } else {
-        intervalRight = setInterval(moveRigth, 1000);        
+        intervalRight = setInterval(moveRigth, 3000);        
     }
     interval = true;
   } else {
